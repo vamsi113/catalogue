@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const mongoClient = require('mongodb').MongoClient;
 const mongoObjectID = require('mongodb').ObjectID;
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -130,7 +130,7 @@ app.get('/search/:text', (req, res) => {
 
 if (process.env.MONGO == 'true') {
 // set up Mongo
-function MongoConnect() {
+function mongoConnect() {
     return new Promise((resolve, reject) => {
         var mongoURL = process.env.MONGO_URL || 'mongodb://mongodb:27017/catalogue';
         mongoClient.connect(mongoURL, (error, client) => {
